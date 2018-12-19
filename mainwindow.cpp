@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
         std::cin >> b[i];
     }
     CuttingStockProblem problem(r, n, l, b);
-    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new Cutting_plane));
+    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new Cutting_plane()));
     for (const auto& plane : ans.planes) {
         for (const auto& elem : plane) {
             qDebug() << elem << " ";

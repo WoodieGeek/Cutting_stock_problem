@@ -7,7 +7,7 @@
 class Cutting_plane : public Solver {
 public:
     Cutting_plane();
-    Answer Solve(std::unique_ptr<CuttingStockProblem> problem);
+    Answer Solve(CuttingStockProblem* problem);
     ~Cutting_plane();
 private:
     std::vector<double> SolvingSystem(std::vector<std::vector<size_t>>a, const std::vector<size_t>& b);

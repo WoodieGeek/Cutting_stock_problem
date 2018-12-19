@@ -7,7 +7,7 @@ CuttingStockProblem::CuttingStockProblem(size_t L, size_t N, std::vector<size_t>
     , C_(C) {}
 
 Answer CuttingStockProblem::GetAnswer(std::unique_ptr<Solver> solver) {
-    return solver->Solve(std::unique_ptr<CuttingStockProblem>(this));
+    return solver->Solve(this);
 }
 
 size_t CuttingStockProblem::Get_L() {

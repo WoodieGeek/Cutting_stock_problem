@@ -71,7 +71,7 @@ std::pair<std::vector<size_t>, double> Cutting_plane::Knapsack(std::vector<doubl
 
 
 
-Answer Cutting_plane::Solve(std::unique_ptr<CuttingStockProblem> problem) {
+Answer Cutting_plane::Solve(CuttingStockProblem* problem) {
     N_ = problem->Get_N();
     L_ = problem->Get_L();
     Answer ans;

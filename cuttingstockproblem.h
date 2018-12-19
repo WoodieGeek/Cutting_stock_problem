@@ -14,7 +14,7 @@ class CuttingStockProblem;
 class Solver {
 public:
     Solver() = default;
-    virtual Answer Solve(std::unique_ptr<CuttingStockProblem> problem) = 0;
+    virtual Answer Solve(CuttingStockProblem* problem) = 0;
     virtual ~Solver() = default;
 };
 
