@@ -1,7 +1,8 @@
 #ifndef CUTTING_PLANE_H
 #define CUTTING_PLANE_H
 #include <bits/stdc++.h>
-#include <cuttingstockproblem.h>
+#include <QDebug>
+#include "cuttingstockproblem.h"
 
 
 class Cutting_plane : public Solver {

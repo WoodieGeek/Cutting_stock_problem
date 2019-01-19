@@ -80,21 +80,18 @@ Answer Cutting_plane::Solve(CuttingStockProblem* problem) {
         a[i].resize(N_);
         a[i][i] = L_ / problem->Get_Ls()[i];
     }
-    std::vector<std::vector<size_t>> at(a[0].size());
-    for (size_t i = 0; i < at.size(); i++)
-        at[i].resize(a.size());
     std::vector<size_t> c(a.size());
     std::vector<double> x, y, g;
-
+    auto transporation = [](std::vector<std::vector<size_t>>& a) {
+        for (size_t i = 0; i < a.size(); i++)
+            for (size_t j = i; j < a[i].size(); j++)
+                std::swap(a[i][j], a[j][i]);
+    };
     do {
         x = SolvingSystem(a, problem->Get_C());
-        for (size_t i = 0; i < a.size(); i++)  {
-            for (size_t j = 0; j < a[i].size(); j++) {
-                at[j][i] = a[i][j];
-            }
-        }
+        transporation(a);
         c.assign(c.size(), 1);
-        y = SolvingSystem(at, c);
+        y = SolvingSystem(a, c);
         const auto& result_knapsack = Knapsack(y, problem->Get_Ls(), problem->Get_L());
         if (result_knapsack.second <= 1)
             break;
@@ -107,10 +104,10 @@ Answer Cutting_plane::Solve(CuttingStockProblem* problem) {
                 ind = i;
             }
         }
+        transporation(a);
         for (size_t i = 0; i < a.size(); i++) {
             a[i][ind] = result_knapsack.first[i];
         }
-
     } while(1);
     ans.planes = a;
     ans.counts.resize(x.size());

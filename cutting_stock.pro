@@ -28,12 +28,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     cutting_plane.cpp \
-    cuttingstockproblem.cpp
+    cuttingstockproblem.cpp \
+    generator.cpp \
+    slow_solver.cpp
 
 HEADERS += \
         mainwindow.h \
     cutting_plane.h \
-    cuttingstockproblem.h
+    cuttingstockproblem.h \
+    generator.h \
+    slow_solver.h
 
 FORMS += \
         mainwindow.ui
@@ -44,4 +48,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    ../build-cutting_stock-Desktop_Qt_5_11_2_GCC_64bit-Debug/in
+    ../build-cutting_stock-Desktop_Qt_5_11_2_GCC_64bit-Debug/in \
+    ../build-cutting_stock-Desktop_Qt_5_11_2_GCC_64bit-Debug/out

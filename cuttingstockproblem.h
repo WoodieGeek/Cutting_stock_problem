@@ -23,6 +23,7 @@ class CuttingStockProblem
 {
 public:
     CuttingStockProblem(size_t L, size_t N, std::vector<size_t>& Ls, std::vector<size_t>& C);
+    CuttingStockProblem(size_t L, size_t N, std::vector<size_t>&& Ls, std::vector<size_t>&& C);
     Answer GetAnswer(std::unique_ptr<Solver> solver);
     size_t Get_L();
     size_t Get_N();

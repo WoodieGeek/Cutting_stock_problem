@@ -4,8 +4,11 @@
 #include <QMainWindow>
 #include <bits/stdc++.h>
 #include <QtDebug>
-#include <cutting_plane.h>
-#include <cuttingstockproblem.h>
+
+#include "cutting_plane.h"
+#include "cuttingstockproblem.h"
+#include "generator.h"
+#include "slow_solver.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,7 +21,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+private:
+    bool Test();
 private:
     Ui::MainWindow *ui;
 };

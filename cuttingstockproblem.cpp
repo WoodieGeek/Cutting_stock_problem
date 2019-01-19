@@ -6,6 +6,11 @@ CuttingStockProblem::CuttingStockProblem(size_t L, size_t N, std::vector<size_t>
     , Ls_(Ls)
     , C_(C) {}
 
+CuttingStockProblem::CuttingStockProblem(size_t L, size_t N, std::vector<size_t>&& Ls, std::vector<size_t>&& C)
+    : L_(L)
+    , N_(N)
+    , Ls_(Ls)
+    , C_(C) {}
 Answer CuttingStockProblem::GetAnswer(std::unique_ptr<Solver> solver) {
     return solver->Solve(this);
 }

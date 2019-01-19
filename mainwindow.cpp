@@ -18,18 +18,38 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     CuttingStockProblem problem(r, n, l, b);
     Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new Cutting_plane()));
+//    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new SlowSolver()));
+    freopen("out", "w", stdout);
     for (const auto& plane : ans.planes) {
         for (const auto& elem : plane) {
-            qDebug() << elem << " ";
+            std::cout << elem << " ";
         }
-        qDebug() << "\n";
+        std::cout << "\n";
     }
+    std::cout << "\n";
     for (const auto& cnt : ans.counts) {
-        qDebug() << cnt << " ";
+        std::cout << cnt << " ";
     }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::Test() {
+    CuttingStockProblem problem(Generator::GetProblem());
+    Answer solve(problem.GetAnswer(std::unique_ptr<Cutting_plane>(new Cutting_plane())));
+    Answer ez_solve(problem.GetAnswer(std::unique_ptr<SlowSolver>(new SlowSolver())));
+    size_t ans_solve = std::accumulate(solve.counts.begin(), solve.counts.end(), (size_t)0);
+    size_t ans_ez_solve = std::accumulate(ez_solve.counts.begin(), ez_solve.counts.end(), (size_t)0);
+    if (ans_solve == ans_ez_solve) {
+        qDebug() << "OK";
+        return true;
+    }
+    else {
+        qDebug() << "Solve " << ans_solve;
+        qDebug() << "Ez Solve " << ans_ez_solve;
+        return true;
+    }
 }
