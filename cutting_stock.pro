@@ -30,14 +30,16 @@ SOURCES += \
     cutting_plane.cpp \
     cuttingstockproblem.cpp \
     generator.cpp \
-    slow_solver.cpp
+    slow_solver.cpp \
+    matrix.cpp
 
 HEADERS += \
         mainwindow.h \
     cutting_plane.h \
     cuttingstockproblem.h \
     generator.h \
-    slow_solver.h
+    slow_solver.h \
+    matrix.h
 
 FORMS += \
         mainwindow.ui

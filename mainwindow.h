@@ -9,6 +9,7 @@
 #include "cuttingstockproblem.h"
 #include "generator.h"
 #include "slow_solver.h"
+#include "matrix.h"
 
 namespace Ui {
 class MainWindow;
