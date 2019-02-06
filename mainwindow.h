@@ -10,6 +10,7 @@
 #include "generator.h"
 #include "slow_solver.h"
 #include "matrix.h"
+#include "glpk_solution.h"
 
 namespace Ui {
 class MainWindow;

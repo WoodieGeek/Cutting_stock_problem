@@ -17,15 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
         std::cin >> b[i];
     }
     CuttingStockProblem problem(r, n, l, b);
-    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new Cutting_plane()));
+//    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new Cutting_plane()));
 //    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new SlowSolver()));
+    Answer ans = problem.GetAnswer(std::unique_ptr<Solver>(new Glpk_solution()));
     freopen("out", "w", stdout);
-    for (const auto& plane : ans.planes) {
-        for (const auto& elem : plane) {
-            std::cout << elem << " ";
-        }
-        std::cout << "\n";
-    }
     std::cout << "\n";
     for (const auto& cnt : ans.counts) {
         std::cout << cnt << " ";

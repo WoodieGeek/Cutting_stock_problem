@@ -1,10 +1,11 @@
 #ifndef CUTTINGSTOCKPROBLEM_H
 #define CUTTINGSTOCKPROBLEM_H
 #include <bits/stdc++.h>
+#include "matrix.h"
 
 struct Answer {
     Answer() = default;
-    std::vector<std::vector<size_t>> planes;
+    Matrix<size_t> planes;
     std::vector<size_t> counts;
 
 };

@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 #include <QDebug>
 #include "cuttingstockproblem.h"
+#include "matrix.h"
 
 
 class Cutting_plane : public Solver {
@@ -11,7 +12,7 @@ public:
     Answer Solve(CuttingStockProblem* problem);
     ~Cutting_plane();
 private:
-    std::vector<double> SolvingSystem(std::vector<std::vector<size_t>>a, const std::vector<size_t>& b);
+    std::vector<double> SolvingSystem(Matrix<size_t>& a, const std::vector<size_t>& b);
     std::pair<std::vector<size_t>, double> Knapsack(std::vector<double>& y, std::vector<size_t>& ls, size_t l);
 
 private:

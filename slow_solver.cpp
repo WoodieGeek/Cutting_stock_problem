@@ -16,7 +16,7 @@ Answer SlowSolver::Solve(CuttingStockProblem* problem) {
     Answer ans;
     if(X->empty())
         return ans;
-    ans.planes.resize(A->size());
+    //ans.planes.resize(A->size());
     const auto& variant = X->at(0);
     ans.counts = variant;
     for (size_t i = 0; i < variant.size(); ++i) {

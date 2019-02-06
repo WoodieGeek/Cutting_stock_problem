@@ -31,7 +31,9 @@ SOURCES += \
     cuttingstockproblem.cpp \
     generator.cpp \
     slow_solver.cpp \
-    matrix.cpp
+    matrix.cpp \
+    glpk_solution.cpp \
+    knapsack.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +41,9 @@ HEADERS += \
     cuttingstockproblem.h \
     generator.h \
     slow_solver.h \
-    matrix.h
+    matrix.h \
+    glpk_solution.h \
+    knapsack.h
 
 FORMS += \
         mainwindow.ui
