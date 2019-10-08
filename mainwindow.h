@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <bits/stdc++.h>
 #include <QtDebug>
+#include <QPainter>
+#include <QLabel>
 
 #include "cutting_plane.h"
 #include "cuttingstockproblem.h"
@@ -11,6 +13,7 @@
 #include "slow_solver.h"
 #include "matrix.h"
 #include "glpk_solution.h"
+#include "plane.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,11 +25,12 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-private:
-    bool Test();
+    ~MainWindow() override;
+public:
+    void paintEvent(QPaintEvent* e) override;
 private:
     Ui::MainWindow *ui;
+    std::vector<Plane> Planes_;
 };
 
 #endif // MAINWINDOW_H

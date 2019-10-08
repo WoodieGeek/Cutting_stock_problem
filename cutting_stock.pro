@@ -33,7 +33,8 @@ SOURCES += \
     slow_solver.cpp \
     matrix.cpp \
     glpk_solution.cpp \
-    knapsack.cpp
+    knapsack.cpp \
+    plane.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
     slow_solver.h \
     matrix.h \
     glpk_solution.h \
-    knapsack.h
+    knapsack.h \
+    plane.h
 
 FORMS += \
         mainwindow.ui
@@ -56,3 +58,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     ../build-cutting_stock-Desktop_Qt_5_11_2_GCC_64bit-Debug/in \
     ../build-cutting_stock-Desktop_Qt_5_11_2_GCC_64bit-Debug/out
+
+LIBS += -lglpk

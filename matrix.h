@@ -31,6 +31,7 @@ public:
     void SetRow(size_t index, const std::vector<V>& row);
     void SwapRows(size_t a, size_t b);
     void SwapColumns(size_t a, size_t b);
+    std::vector<T> GetColumn(size_t index);
 private:
     std::vector<std::vector<T>> Data;
     size_t Rows;
@@ -190,5 +191,15 @@ template <typename T>
 void Matrix<T>::SwapColumns(size_t a, size_t b) {
     for (size_t i = 0; i < Rows; i++)
         std::swap(Data[i][a], Data[i][b]);
+}
+
+template <typename T>
+std::vector<T> Matrix<T>::GetColumn(size_t index) {
+    if (index >= Columns)
+        throw MatrixException("Column's index is out of range");
+    std::vector<T> column(Rows);
+    for (size_t i = 0; i < Rows; i++)
+        column[i] = Data[i][index];
+    return column;
 }
 #endif // MATRIX_H
